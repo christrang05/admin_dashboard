@@ -1,0 +1,36 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: grid;
+    grid-template-areas:
+        "sidebar header"
+        "sidebar main-content";
+    grid-template-columns: 20% 1fr; /* Sidebar takes up 20% of the width, main-content fills the rest */
+    grid-template-rows: 50px 1fr; /* Header has a fixed height of 50px */
+    height: 100vh; /* Make the container fill the entire viewport height */
+}
+
+.sidebar {
+    grid-area: sidebar;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+}
+
+.header {
+    grid-area: header;
+    background-color: #999;
+    color: #fff;
+    padding: 10px;
+}
+
+.main-content {
+    grid-area: main-content;
+    background-color: #f4f4f4;
+    padding: 10px;
+}
