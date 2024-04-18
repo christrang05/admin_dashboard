@@ -1,3 +1,8 @@
+* {
+    border: 1px solid red;
+    color: black;
+}
+
 body, html {
     margin: 0;
     padding: 0;
@@ -11,13 +16,13 @@ body, html {
         "sidebar header"
         "sidebar main-content";
     grid-template-columns: 20% 1fr; /* Sidebar takes up 20% of the width, main-content fills the rest */
-    grid-template-rows: 50px 1fr; /* Header has a fixed height of 50px */
+    grid-template-rows: 150px 1fr; /* Header has a fixed height of 150px */
     height: 100vh; /* Make the container fill the entire viewport height */
 }
 
 .sidebar {
     grid-area: sidebar;
-    background-color: #333;
+    background-color: #24a0ed;
     color: #fff;
     padding: 10px;
     display: flex;
@@ -26,6 +31,10 @@ body, html {
 
 .sidebar-section {
     margin-bottom: 20px;
+}
+
+.sidebar-section * {
+    color: #fff;
 }
 
 .sidebar-section:nth-of-type(2) {
@@ -47,10 +56,98 @@ body, html {
 }
 
 .header {
-    grid-area: header;
-    background-color: #999;
-    color: #fff;
+    display: grid;
+    grid-template-areas: 
+        "search search profile"
+        "user user options"
+        "user user options";
+    grid-template-columns: 1fr 1fr 1fr;
+    color: white;
+    background-color: white;
     padding: 10px;
+}
+
+.search-bar {
+    grid-area: search;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+}
+
+.search-icon {
+    justify-self: center;
+    align-self: center;
+}
+
+.search {
+    border-radius: 20px;
+    background-color: gainsboro;
+}
+
+.header-right {
+    grid-area: profile;
+    justify-self: center;
+    align-self: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr;
+}
+
+.profile-greeting {
+    grid-area: user;
+    display: grid;
+    grid-template-columns: 100px auto; /* 100px for image, rest for text */
+    grid-gap: 10px; /* Space between image and text */
+    align-items: center; /* Vertically align items in the grid */
+}
+
+.profile-image-small {
+    width: 100px; /* Set the width of the image */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.profile-text {
+    display: grid;
+    grid-template-rows: auto auto; /* Two rows, one for each text element */
+    grid-gap: 5px; /* Space between texts */
+    align-items: center; /* Align text vertically */
+}
+
+.small-text {
+    font-size: 0.8em;
+}
+
+.big-text {
+    font-size: 1.5em;
+}
+
+.action-buttons {
+    grid-area: options;
+    justify-self: center;
+    align-self: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+.blue-button {
+    background-color: #24a0ed; /* Set the background color */
+    color: white; /* Set the text color */
+    border: none; /* Remove default border */
+    padding: 10px 25px; /* Add some padding for better appearance */
+    border-radius: 20px; /* Rounded corners */
+    font-size: 16px; /* Optional: Adjust font size */
+    cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+
+    /* Improve appearance on hover */
+    &:hover {
+        background-color: darkblue; /* Darken the button on hover */
+    }
+
+    /* Improve appearance on focus for accessibility */
+    &:focus {
+        outline: none; /* Remove default focus outline */
+        box-shadow: 0 0 0 2px rgba(0, 0, 255, 0.5); /* Add a custom focus ring */
+    }
 }
 
 .main-content {
